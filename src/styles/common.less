@@ -1,0 +1,25 @@
+@pingfang: PingFangSC-Regular, PingFang SC;
+@pingfangMedium: PingFangSC-Medium, PingFang SC;
+
+.pointer(@type:pointer) {
+    cursor: @type;
+}
+
+// 满足n行，使用...
+.ellipsis(@rows: 2) {
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @rows;
+    line-clamp: @rows;
+    -webkit-box-orient: vertical;
+}
+
+.flex(@align:center,@justify:flex-start,@wrap:nowrap,@row:row) {
+    display: flex;
+    align-items: @align;
+    justify-content: @justify;
+    flex-wrap: @wrap;
+    flex-direction: @row;
+}
