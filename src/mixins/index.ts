@@ -5,7 +5,10 @@ export default {
         };
     },
 
+    header() {},
+
     created() {
-        console.log("index mixin created");
+        // console.log("dsf1", this);
+        // console.log("index mixin created", this.$route);
     },
 };

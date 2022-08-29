@@ -8,6 +8,8 @@ import store from "./store";
 import router from "./router";
 import globalMixin from "./mixins";
 import middleware from "./middleware/auth";
+import setmeta from "./plugins/setmeta";
+import config from "./config";
 
 // createApp(App).mount("#app");
 // 存在 createSSRApp() 以 SSR 激活模式创建一个应用实例。用法与 createApp() 完全相同。
@@ -15,29 +17,52 @@ import middleware from "./middleware/auth";
 // 创建一个应用实例
 const app = createApp(App);
 
-// console.log("app config", app.config);
+// console.log("App", App);
+
+// console.log("app", app);
 
 // 安装插件
 app.use(router);
-app.use(store);
 
-// 路由检测
-middleware({ router, store });
-
-// 应用一个全局 mixin  尝试实现路由中间件
+// 应用一个全局 mixin  里面的数据可供所有页面使用
 app.mixin(globalMixin);
 
 // 提供一个值，可以在应用中的所有后代组件中注入使用。
 app.provide("message", " welcome !");
 
-// 将route的一些方法挂在到全局 供所有页面使用
-// router 中的 个别方法已经绑定到实例中
+/**
+ *  将router的一些方法挂在到全局 供所有页面使用
+ *  下面的方法提示只能get不能set方法，打印发现 router 中的方法已经绑定到实例中 app.$.config.globalProperties
+ *  能查到已绑定到全局的方法或者变量
+ *  可通过 this.$router/this.$route 访问
+ */
 // app.config.globalProperties.$route = {
 //     push: router.push,
 // };
+// 将 store 挂载到全局
+app.config.globalProperties.$store = store;
+
+// 路由检测
+await middleware({ router, store });
+
+// 打印 router 能查到正确的路径信息， 但是router.currentRoute.value.meta.title就都是‘/’路径的信息
+// 需要延迟获取才可
+// let timer: any = null;
+// timer = setInterval(() => {
+//     console.log("router信息", router.currentRoute.value);
+//     if (router.currentRoute.value.meta.title) {
+//         clearInterval(timer);
+//         timer = null;
+//         setmeta(document, config, router);
+//     }
+// }, 10);
+
+// 设置一些头部信息
+await setmeta(document, config, router);
 
 // 将应用实例挂载在一个容器元素中。返回根组件的实例, 可以理解为this或者上下文context。
 const context = app.mount("#app");
+
 // console.log("context", context);
 
 /**

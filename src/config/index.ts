@@ -1,13 +1,13 @@
 let apiBaseUrl = "http://test/adm";
 
-let version = "1.0.0";
+let version = "1.0.1";
 
-let port = 2468;
+let port = 5320;
 
 export default {
-	apiBaseUrl,
+    apiBaseUrl,
 
-	version,
+    version,
 
-	port,
+    port,
 };

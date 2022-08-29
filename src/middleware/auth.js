@@ -1,4 +1,4 @@
-export default function ({ router, store }) {
+export default async function ({ router, store }) {
     // 判断当前路径是否存在于路由菜单中
     /**
      *  router.currentRoute._value.path 获取到的当前路径打印出来是对的，
@@ -7,17 +7,17 @@ export default function ({ router, store }) {
      */
     // // 1
     // setTimeout(() => {
-    //     let pathList = router.getRoutes().map((router) => {
-    //         return router.path;
-    //     });
-    //     // 当前路径
-    //     let currentPath = router.currentRoute._value.path;
-    //     // 已有的路径中不存在当前的 跳往404页面
-    //     if (!pathList.includes(currentPath)) {
-    //         console.log("不存在");
-    //         // router.replace("/404");
-    //     } else {
-    //     }
+    // let pathList = router.getRoutes().map((router) => {
+    //     return router.path;
+    // });
+    // // 当前路径
+    // let currentPath = router.currentRoute._value.path;
+    // // 已有的路径中不存在当前的 跳往404页面
+    // if (!pathList.includes(currentPath)) {
+    //     // console.log("不存在");
+    //     router.replace("/404");
+    // } else {
+    // }
     // }, 200);
 
     // // 2 options中获取当前路径
@@ -40,5 +40,6 @@ export default function ({ router, store }) {
         console.log("不存在该路径, 将跳往404页面");
         router.replace("/404");
     } else {
+        console.log("auth over");
     }
 }

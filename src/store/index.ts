@@ -7,7 +7,9 @@ export default createStore({
         return {
             count: 0,
 
-            userInfo: {},
+            userInfo: {
+                name: "nick",
+            },
         };
     },
 
