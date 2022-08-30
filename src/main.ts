@@ -26,6 +26,11 @@ const app = createApp(App);
 // 安装插件
 app.use(router);
 
+// 使用 store， 页面中可以配合 useStore 访问数据
+// 且可以通过 this.$store 访问，
+// 将 store 挂载到全局的 app.config.globalProperties.$store = store 步骤也就省略了
+app.use(store);
+
 // 应用一个全局 mixin  里面的数据可供所有页面使用
 app.mixin(globalMixin);
 
@@ -41,8 +46,6 @@ app.provide("message", " welcome !");
 // app.config.globalProperties.$route = {
 //     push: router.push,
 // };
-// 将 store 挂载到全局
-app.config.globalProperties.$store = store;
 
 // 将访问挂载到全局
 app.config.globalProperties.$axios = axios;
@@ -71,7 +74,7 @@ const context = app.mount("#app");
 /**
  *  app 中的一些挂载属性可以在 $.appContext.app 找到
  */
-console.log("context", context);
+// console.log("context", context);
 
 /**
  *  app 可调用的实例方法

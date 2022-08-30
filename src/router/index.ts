@@ -23,12 +23,12 @@ const routes = [
         component: () => import("@/pages/about.vue"),
     },
     {
-        path: "/wait",
-        name: "wait",
+        path: "/book",
+        name: "book",
         meta: {
-            title: "wait",
+            title: "book",
         },
-        component: () => import("@/pages/wait.vue"),
+        component: () => import("@/pages/book.vue"),
     },
     {
         path: "/404",

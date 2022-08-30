@@ -31,7 +31,7 @@ axios.interceptors.request.use(
         reqData.headers.post["Content-Type"] =
             "application/x-www-form-urlencoded";
 
-        // 统一处理请求数据
+        // 使用qs统一处理请求数据格式
         reqData.transformRequest = function (data) {
             return qs.stringify(data);
         };
