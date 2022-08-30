@@ -40,6 +40,35 @@ export default {
 
     mounted() {
         console.log("dependCount", this.dependCount);
+        this.getBannerData();
+        this.getBookStore();
+    },
+
+    methods: {
+        getBannerData() {
+            this.$axios
+                .get(
+                    "https://micro.qknode.com/qkbloc-novel/novels/novel/getConfigNovel"
+                )
+                .then((resData) => {
+                    console.log("轮播数据", resData);
+                });
+        },
+
+        getBookStore() {
+            this.$axios
+                .post(
+                    `https://micro.qknode.com/qkbloc-novel/novels/novel/getHomePageInfo`,
+                    {
+                        channel: 0,
+                        page: 1,
+                        size: 12,
+                    }
+                )
+                .then((back) => {
+                    console.log("列表数据", back);
+                });
+        },
     },
 };
 </script>

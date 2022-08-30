@@ -7,9 +7,11 @@ import App from "./App.vue";
 import store from "./store";
 import router from "./router";
 import globalMixin from "./mixins";
+import config from "./config";
+
 import middleware from "./middleware/auth";
 import setmeta from "./plugins/setmeta";
-import config from "./config";
+import axios from "./plugins/axios";
 
 // createApp(App).mount("#app");
 // 存在 createSSRApp() 以 SSR 激活模式创建一个应用实例。用法与 createApp() 完全相同。
@@ -32,7 +34,7 @@ app.provide("message", " welcome !");
 
 /**
  *  将router的一些方法挂在到全局 供所有页面使用
- *  下面的方法提示只能get不能set方法，打印发现 router 中的方法已经绑定到实例中 app.$.config.globalProperties
+ *  下面的方法提示只能get不能set方法，打印发现 router 中的方法已经绑定到实例中 app.config.globalProperties
  *  能查到已绑定到全局的方法或者变量
  *  可通过 this.$router/this.$route 访问
  */
@@ -41,6 +43,9 @@ app.provide("message", " welcome !");
 // };
 // 将 store 挂载到全局
 app.config.globalProperties.$store = store;
+
+// 将访问挂载到全局
+app.config.globalProperties.$axios = axios;
 
 // 路由检测
 await middleware({ router, store });
@@ -63,7 +68,10 @@ await setmeta(document, config, router);
 // 将应用实例挂载在一个容器元素中。返回根组件的实例, 可以理解为this或者上下文context。
 const context = app.mount("#app");
 
-// console.log("context", context);
+/**
+ *  app 中的一些挂载属性可以在 $.appContext.app 找到
+ */
+console.log("context", context);
 
 /**
  *  app 可调用的实例方法

@@ -1,7 +1,7 @@
 // meta 信息
 export default async function (d: any, c: any, r: any) {
     // d document ， c config , r router
-    console.log("传入的信息", d, c, r);
+    // console.log("传入的信息", d, c, r);
     // 根据传入的信息 自定义一个标签
     let versionElement = d.createElement("meta");
     versionElement.name = "version";
