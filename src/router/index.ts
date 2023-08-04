@@ -48,6 +48,7 @@ const routes = [
     },
 ];
 
+// 前端路由俩种方式 history 与 hash
 export default createRouter({
     history: createWebHistory(),
     routes,
