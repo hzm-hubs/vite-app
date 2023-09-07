@@ -9,9 +9,17 @@ import router from "./router";
 import globalMixin from "./mixins";
 import config from "./config";
 
-import middleware from "./middleware/auth";
 import setmeta from "./plugins/setmeta";
 import axios from "./plugins/axios";
+
+// 全局引入 element-plus
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
+import zhCn from "element-plus/dist/locale/zh-cn.mjs";
+
+// 全局的css
+import "@/assets/styles/index.css"
+import "@/assets/styles/common.less"
 
 // createApp(App).mount("#app");
 // 存在 createSSRApp() 以 SSR 激活模式创建一个应用实例。用法与 createApp() 完全相同。
@@ -30,6 +38,11 @@ app.use(router);
 // 且可以通过 this.$store 访问，
 // 将 store 挂载到全局的 app.config.globalProperties.$store = store 步骤也就省略了
 app.use(store);
+
+// 应用
+app.use(ElementPlus, {
+    locale: zhCn,
+});
 
 // 应用一个全局 mixin  里面的数据可供所有页面使用
 app.mixin(globalMixin);
@@ -50,8 +63,6 @@ app.provide("message", " welcome !");
 // 将访问挂载到全局
 app.config.globalProperties.$axios = axios;
 
-// 路由检测
-await middleware({ router, store });
 
 // 打印 router 能查到正确的路径信息， 但是router.currentRoute.value.meta.title就都是‘/’路径的信息
 // 需要延迟获取才可
@@ -66,7 +77,7 @@ await middleware({ router, store });
 // }, 10);
 
 // 设置一些头部信息
-await setmeta(document, config, router);
+setmeta(document, config, router);
 
 // 将应用实例挂载在一个容器元素中。返回根组件的实例, 可以理解为this或者上下文context。
 const context = app.mount("#app");

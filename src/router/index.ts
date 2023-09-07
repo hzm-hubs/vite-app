@@ -1,7 +1,9 @@
 // @ts-nocheck
 
 // 路由
-
+import store from "@/store/index";
+import middleware from "@/middleware/auth";
+import defaultLayout from '@/layouts/defaultLayout.vue'
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -15,20 +17,30 @@ const routes = [
         component: () => import("@/pages/index.vue"),
     },
     {
-        path: "/about",
-        name: "about",
+        path: "/books",
+        name: "books",
         meta: {
-            title: "关于",
+            title: "books",
         },
-        component: () => import("@/pages/about.vue"),
-    },
-    {
-        path: "/book",
-        name: "book",
-        meta: {
-            title: "book",
-        },
-        component: () => import("@/pages/book.vue"),
+        component: defaultLayout,
+        children: [
+            {
+                path: "index",
+                name: "Index",
+                meta: {
+                    title: "Index",
+                },
+                component: () => import("@/pages/books/index.vue"),
+            },
+            {
+                path: "tengwangge",
+                name: "Tengwangge",
+                meta: {
+                    title: "tengwangge",
+                },
+                component: () => import("@/pages/books/tengwangge.vue"),
+            }
+        ]
     },
     {
         path: "/404",
@@ -37,6 +49,7 @@ const routes = [
             title: "页面未找到",
         },
         component: () => import("@/pages/404.vue"),
+
     },
     {
         path: "/500",
@@ -48,8 +61,18 @@ const routes = [
     },
 ];
 
-// 前端路由俩种方式 history 与 hash
-export default createRouter({
+
+
+// 前端路由俩种方式 history(popstate,replaceState,pushState) 与 hash
+const router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes, 
 });
+
+// 路由前检测函数
+router.beforeEach = (routeInfo => {
+    console.log('routeInfo',routeInfo)
+    // middleware()
+})
+
+export default router
