@@ -8,7 +8,8 @@
 
 </template>
 <script setup>
-import { ref } from "vue";  
+import { ref } from "vue";
+import { useLink } from "vue-router";  
 const articleContext = ref("豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯");
 const curIndex = ref(1);
 const articleList = ref([
@@ -21,6 +22,10 @@ const articleList = ref([
     "呜呼！胜地不常，盛筵难再；兰亭已矣，梓泽丘墟。临别赠言，幸承恩于伟饯；登高作赋，是所望于群公。敢竭鄙怀，恭疏短引；一言均赋，四韵俱成。请洒潘江，各倾陆海云尔。",
     "滕王高阁临江渚，佩玉鸣鸾罢歌舞。画栋朝飞南浦云，珠帘暮卷西山雨。闲云潭影日悠悠，物换星移几度秋。阁中帝子今何在？槛外长江空自流。",
 ]);
+
+// const cursf = useLink(props)
+
+console.log('context',context)
 
 function handleText() {
     articleContext.value += articleList.value[curIndex.value]

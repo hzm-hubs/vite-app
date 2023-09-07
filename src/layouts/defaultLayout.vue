@@ -1,6 +1,5 @@
 <template>
     <div class="default">
-        3124
         <router-view></router-view>
     </div>
 </template>

@@ -70,7 +70,7 @@ const router = createRouter({
 });
 
 // 路由前检测函数
-router.beforeEach = (routeInfo => {
+router.beforeEach(routeInfo => {
     console.log('routeInfo',routeInfo)
     // middleware()
 })

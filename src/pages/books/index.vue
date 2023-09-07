@@ -1,6 +1,7 @@
 <template>
     <div class="book">
         <div class="book__banner">
+            index
             <div
                 v-for="(banner, index) in bannerList"
                 :key="index"
@@ -14,9 +15,9 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { mapState, useStore } from "vuex";
-import { useMapState } from "../plugins/useMapState";
+import { useMapState } from "@/plugins/useMapState";
 export default {
     // setup() 钩子是在组件中使用组合式 API 的入口，通常只在以下情况下使用：
 
@@ -30,6 +31,11 @@ export default {
         const count = ref(12);
         // 法1: 单独声明使用 store
         const store = useStore();
+
+        const pageInfo = reactive({
+            props: JSON.stringify(props),
+            context: JSON.stringify(context),
+        })
 
         const peopleA = computed(() => store.state.userInfo);
 
@@ -58,6 +64,7 @@ export default {
             dependCount,
             peopleA,
             peopleB,
+            pageInfo
         };
     },
 
@@ -72,6 +79,7 @@ export default {
     mounted() {
         console.log("peopleA", this.peopleA);
         console.log("peopleB", this.peopleB);
+        console.log("pageInfo", this.pageInfo);
         this.getBannerData();
         this.getBookStore();
     },
