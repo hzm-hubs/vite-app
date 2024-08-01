@@ -3,8 +3,13 @@
 // 路由
 import store from "@/store/index";
 import middleware from "@/middleware/auth";
-import defaultLayout from '@/layouts/defaultLayout.vue'
-import { createRouter, createWebHistory } from "vue-router";
+import defaultLayout from "@/layouts/defaultLayout.vue";
+import {
+    createRouter,
+    createWebHistory,
+    useRoute,
+    useRouter,
+} from "vue-router";
 
 const routes = [
     // 首页
@@ -39,8 +44,8 @@ const routes = [
                     title: "tengwangge",
                 },
                 component: () => import("@/pages/books/tengwangge.vue"),
-            }
-        ]
+            },
+        ],
     },
     {
         path: "/404",
@@ -49,7 +54,6 @@ const routes = [
             title: "页面未找到",
         },
         component: () => import("@/pages/404.vue"),
-
     },
     {
         path: "/500",
@@ -61,18 +65,22 @@ const routes = [
     },
 ];
 
-
-
-// 前端路由俩种方式 history(popstate,replaceState,pushState) 与 hash
+// 前端路由俩种方式 history(popstate,replaceState,pushState) 与 hash（#）
 const router = createRouter({
     history: createWebHistory(),
-    routes, 
+    routes,
 });
 
 // 路由前检测函数
-router.beforeEach(routeInfo => {
-    console.log('routeInfo',routeInfo)
-    // middleware()
-})
+// to  : 要前往的
+// from: 要到达的
+// next: 约等于 router.push
+router.beforeEach(async (to, from, next) => {
+    const path = await middleware(router);
+    // todo: 这里不加 to.path !== 会执行多次导致页面无响应
+    // todo: next('/404') 与 next({name:'404'})
+    if (path && to.path !== "/404") return next(path);
+    return next();
+});
 
-export default router
+export default router;

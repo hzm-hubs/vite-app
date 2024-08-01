@@ -13,6 +13,6 @@ export default {};
 .not-found {
     display: flex;
     flex-direction: column;
-    padding: 10% 0 0 20%;
+    padding: 6% 0 0 12%;
 }
 </style>

@@ -1,8 +1,6 @@
 <template>
     <div class="error">
-        <h2>
-            500 error
-        </h2>
+        <h2>500 error</h2>
     </div>
 </template>
 
@@ -14,6 +12,6 @@ export default {};
 .error {
     display: flex;
     flex-direction: column;
-    padding: 10% 0 0 20%;
+    padding: 6% 0 0 12%;
 }
 </style>

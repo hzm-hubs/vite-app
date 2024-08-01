@@ -1,4 +1,4 @@
 <template>
-<!-- 页面入口 -->
-<router-view></router-view>
+    <!-- 外层页面入口 -->
+    <router-view></router-view>
 </template>

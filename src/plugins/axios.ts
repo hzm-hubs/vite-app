@@ -27,9 +27,8 @@ axios.interceptors.request.use(
         // xsrfCookieName: "XSRF-TOKEN"
         // xsrfHeaderName: "X-XSRF-TOKEN"
 
-        // 设置post时的请求格式
-        reqData.headers.post["Content-Type"] =
-            "application/x-www-form-urlencoded";
+        // 设置post时的请求格式 "application/x-www-form-urlencoded";
+        reqData.headers.post["Content-Type"] = "application/json";
 
         // 使用qs统一处理请求数据格式
         reqData.transformRequest = function (data) {
@@ -47,7 +46,7 @@ axios.interceptors.request.use(
 
         // 返回
         return reqData;
-    }
+    },
 );
 
 // 响应拦截
