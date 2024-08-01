@@ -12,7 +12,7 @@ import {
 } from "vue-router";
 
 const routes = [
-    // 首页
+    // todo name 不能重复
     {
         path: "/",
         name: "home",
@@ -20,6 +20,14 @@ const routes = [
             title: "首页",
         },
         component: () => import("@/pages/index.vue"),
+    },
+    {
+        path: "/originIndex",
+        name: "horiginIndexome",
+        meta: {
+            title: "之前首页",
+        },
+        component: () => import("@/pages/originIndex.vue"),
     },
     {
         path: "/books",

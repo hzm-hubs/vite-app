@@ -1,8 +1,7 @@
-<template>
-    <div>
-    </div>
+<template lang="">
+    <div></div>
 </template>
-<<script setup>
+<script>
+export default {};
 </script>
-<style scoped>
-</style>
+<style lang=""></style>

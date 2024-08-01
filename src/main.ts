@@ -18,8 +18,8 @@ import "element-plus/dist/index.css";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 
 // 全局的css
-import "@/assets/styles/index.css"
-import "@/assets/styles/common.less"
+import "@/assets/styles/index.css";
+// import "@/assets/styles/common.less"
 
 // createApp(App).mount("#app");
 // 存在 createSSRApp() 以 SSR 激活模式创建一个应用实例。用法与 createApp() 完全相同。
@@ -38,6 +38,9 @@ app.use(router);
 // 且可以通过 this.$store 访问，
 // 将 store 挂载到全局的 app.config.globalProperties.$store = store 步骤也就省略了
 app.use(store);
+
+// 静态文件
+app.use("static", "./static");
 
 // 应用
 app.use(ElementPlus, {
@@ -62,7 +65,6 @@ app.provide("message", " welcome !");
 
 // 将访问挂载到全局
 app.config.globalProperties.$axios = axios;
-
 
 // 打印 router 能查到正确的路径信息， 但是router.currentRoute.value.meta.title就都是‘/’路径的信息
 // 需要延迟获取才可
