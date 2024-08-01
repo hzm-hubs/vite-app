@@ -25,8 +25,6 @@ const articleList = ref([
 
 // const cursf = useLink(props)
 
-console.log('context',context)
-
 function handleText() {
     articleContext.value += articleList.value[curIndex.value]
     curIndex.value ++

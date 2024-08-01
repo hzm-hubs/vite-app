@@ -1,5 +1,5 @@
 <template>
-    <div class="default">
+    <div class="default__layout">
         <router-view></router-view>
     </div>
 </template>
@@ -8,7 +8,7 @@
 // const router = useRouter()
 </script>
 <style scoped>
-.default {
+.default__layout {
     width: 100%;
     height: 100vh;
 }

@@ -1,9 +1,19 @@
 <template>
-    <div>500</div>
+    <div class="error">
+        <h2>
+            500 error
+        </h2>
+    </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style></style>
+<style>
+.error {
+    display: flex;
+    flex-direction: column;
+    padding: 10% 0 0 20%;
+}
+</style>

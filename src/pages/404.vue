@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="not-found">
         <h2>404</h2>
         <h2>page not found</h2>
     </div>
@@ -9,4 +9,10 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped>
+.not-found {
+    display: flex;
+    flex-direction: column;
+    padding: 10% 0 0 20%;
+}
+</style>

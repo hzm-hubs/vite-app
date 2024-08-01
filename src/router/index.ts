@@ -25,7 +25,7 @@ const routes = [
         component: defaultLayout,
         children: [
             {
-                path: "index",
+                path: "/books",
                 name: "Index",
                 meta: {
                     title: "Index",

@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@vue-flow/core": "^1.39.1",
 		"axios": "^0.27.2",
 		"dayjs": "^1.11.5",
 		"element-plus": "^2.3.12",
