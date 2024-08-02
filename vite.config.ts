@@ -47,7 +47,8 @@ export default defineConfig({
                 //     blue: "#1CC0FF",
                 // },
                 javascriptEnabled: true,
-                additionalData: `@import "@/assets/styles/common.less";`,
+                additionalData: `@import url(@/assets/styles/common.less);`,
+                // additionalData: `@import "@/assets/styles/common.less";`,
                 // additionalData: `@import "${pathResolve(
                 //     "src/assets/styles/common.less",
                 // )}";`,

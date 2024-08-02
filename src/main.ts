@@ -19,7 +19,6 @@ import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 
 // 全局的css
 import "@/assets/styles/index.css";
-// import "@/assets/styles/common.less"
 
 // createApp(App).mount("#app");
 // 存在 createSSRApp() 以 SSR 激活模式创建一个应用实例。用法与 createApp() 完全相同。

@@ -10,48 +10,49 @@ import {
     useRoute,
     useRouter,
 } from "vue-router";
+import component from "element-plus/es/components/tree-select/src/tree-select-option.mjs";
 
 const routes = [
     // todo name 不能重复
     {
         path: "/",
-        name: "home",
-        meta: {
-            title: "首页",
-        },
-        component: () => import("@/pages/index.vue"),
-    },
-    {
-        path: "/originIndex",
-        name: "horiginIndexome",
-        meta: {
-            title: "之前首页",
-        },
-        component: () => import("@/pages/originIndex.vue"),
-    },
-    {
-        path: "/books",
-        name: "books",
-        meta: {
-            title: "books",
-        },
         component: defaultLayout,
         children: [
             {
-                path: "/books",
-                name: "Index",
+                path: "",
+                name: "Home",
                 meta: {
-                    title: "Index",
+                    title: "首页",
                 },
-                component: () => import("@/pages/books/index.vue"),
+                component: () => import("@/pages/index.vue"),
             },
             {
-                path: "tengwangge",
-                name: "Tengwangge",
+                path: "originIndex",
+                name: "OriginIndex",
                 meta: {
-                    title: "tengwangge",
+                    title: "旧首页",
                 },
-                component: () => import("@/pages/books/tengwangge.vue"),
+                component: () => import("@/pages/originIndex.vue"),
+            },
+            {
+                path: "books",
+                name: "books",
+                // redirect: "/",
+                children: [
+                    {
+                        path: "", // path: "" 写法等同于为父级设置别名 alias 属性
+                        name: "BooksIndex",
+                        component: () => import("@/pages/books/index.vue"),
+                    },
+                    {
+                        path: "tengwangge",
+                        name: "Tengwangge",
+                        meta: {
+                            title: "tengwangge",
+                        },
+                        component: () => import("@/pages/books/tengwangge.vue"),
+                    },
+                ],
             },
         ],
     },

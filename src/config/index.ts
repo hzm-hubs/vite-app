@@ -1,6 +1,6 @@
 let apiBaseUrl = "http://test/adm";
 
-let version = "1.0.3";
+let version = "1.0.4";
 
 let port = 6001;
 
