@@ -60,7 +60,7 @@ const routes = [
         path: "/404",
         name: "404",
         meta: {
-            title: "页面未找到",
+            title: "404",
         },
         component: () => import("@/pages/404.vue"),
     },

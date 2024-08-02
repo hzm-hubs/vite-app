@@ -1,37 +1,38 @@
 {
-	"name": "viteapp",
-	"private": true,
-	"version": "1.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview"
-	},
-	"dependencies": {
-		"@vue-flow/core": "^1.39.1",
-		"axios": "^0.27.2",
-		"dayjs": "^1.11.5",
-		"element-plus": "^2.3.12",
-		"less": "^4.1.3",
-		"less-loader": "^11.0.0",
-		"qs": "^6.11.0",
-		"vue": "^3.2.37",
-		"vue-router": "^4.0.13",
-		"vuex": "^4.0.2"
-	},
-	"devDependencies": {
-		"@vitejs/plugin-vue": "^3.0.3",
-		"eslint": "^8.22.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-import": "^2.28.1",
-		"eslint-plugin-prettier": "^5.0.0",
-		"eslint-plugin-vue": "^9.4.0",
-		"prettier": "^3.0.3",
-		"sass": "^1.54.5",
-		"typescript": "^4.7.4",
-		"unplugin-auto-import": "^0.18.2",
-		"vite": "^3.0.7",
-		"vite-plugin-style-import": "^2.0.0"
-	}
+    "name": "viteapp",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "dev: prod": "vite --mode prodiction",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@vue-flow/core": "^1.39.1",
+        "axios": "^0.27.2",
+        "dayjs": "^1.11.5",
+        "element-plus": "^2.3.12",
+        "less": "^4.1.3",
+        "less-loader": "^11.0.0",
+        "qs": "^6.11.0",
+        "vue": "^3.2.37",
+        "vue-router": "^4.0.13",
+        "vuex": "^4.0.2"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^3.0.3",
+        "eslint": "^8.22.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-import": "^2.28.1",
+        "eslint-plugin-prettier": "^5.0.0",
+        "eslint-plugin-vue": "^9.4.0",
+        "prettier": "^3.0.3",
+        "typescript": "^4.7.4",
+        "unplugin-auto-import": "^0.18.2",
+        "vite": "^3.0.7",
+        "vite-plugin-html": "^3.2.2",
+        "vite-plugin-style-import": "^2.0.0"
+    }
 }
