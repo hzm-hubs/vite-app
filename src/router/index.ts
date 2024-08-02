@@ -27,12 +27,12 @@ const routes = [
                 component: () => import("@/pages/index.vue"),
             },
             {
-                path: "originIndex",
-                name: "OriginIndex",
+                path: "origin",
+                name: "origin",
                 meta: {
                     title: "旧首页",
                 },
-                component: () => import("@/pages/originIndex.vue"),
+                component: () => import("@/pages/origin.vue"),
             },
             {
                 path: "books",

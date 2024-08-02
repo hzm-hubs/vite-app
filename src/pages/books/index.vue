@@ -1,5 +1,6 @@
 <template>
     <div class="book">
+        <Loading></Loading>
         <div class="book__banner">
             <div
                 v-for="(banner, index) in booksList"

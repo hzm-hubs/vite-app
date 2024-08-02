@@ -3,9 +3,11 @@ import { defineConfig, loadEnv } from "vite";
 import { resolve, join, dirname } from "path";
 import vue from "@vitejs/plugin-vue";
 import config from "./src/config";
-import dayjs from "./src/plugins/dayjs";
 import styleImport from "vite-plugin-style-import";
 import { createHtmlPlugin } from "vite-plugin-html";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // 生成绝对路径
 function pathResolve(dir: string) {
@@ -46,13 +48,25 @@ export default ({ mode, command }) =>
         publicDir: "public",
         plugins: [
             vue(),
-            dayjs,
             createHtmlPlugin({
                 inject: {
                     data: {
                         title: getViteEnv(mode, "VITE_APP_TITLE"),
                     },
                 },
+            }),
+            AutoImport({
+                // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+                imports: ["vue", "vue-router"],
+                // 自动导入element相关函数，如：ElMessage, ElMessageBox..
+                resolvers: [ElementPlusResolver()],
+                // dts: "./auto-imports.d.ts", // 默认文件生成位置, 也可以自定义
+            }),
+
+            Components({
+                // 指定自动导入的组件位置，
+                dirs: ["src/components/Common"],
+                // dts: './components.d.ts', // 默认文件生成位置
             }),
         ],
         css: {
