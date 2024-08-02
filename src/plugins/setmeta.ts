@@ -34,5 +34,5 @@ export default async function (d: any, c: any, r: any) {
     // 将版本信息推入head头部
     d.head.append(charElement, versionElement);
 
-    console.log("setmeta over");
+    console.log("set-meta over");
 }

@@ -1,7 +1,7 @@
 export default {
     data() {
         return {
-            path: "324",
+            authorname: "hliuliu",
         };
     },
 

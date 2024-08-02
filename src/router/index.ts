@@ -54,6 +54,21 @@ const routes = [
                     },
                 ],
             },
+            {
+                path: "flows",
+                name: "Flows",
+                children: [
+                    {
+                        path: "",
+                        name: "VueFlowCore",
+                        meta: {
+                            title: "vue-flow-core",
+                        },
+                        component: () =>
+                            import("@/pages/flows/vueflowcore.vue"),
+                    },
+                ],
+            },
         ],
     },
     {

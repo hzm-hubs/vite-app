@@ -41,7 +41,7 @@ export default ({ mode, command }) =>
             // 设置中间键名
             // 相对于 src 的路径访问如 ../assets/ 可以用 @/assets/
             alias: {
-                "@": pathResolve("src"),
+                "@/": pathResolve("src") + "/",
             },
         },
         // 静态资源文件

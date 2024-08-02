@@ -9,8 +9,8 @@ import router from "./router";
 import globalMixin from "./mixins";
 import config from "./config";
 
-import setmeta from "./plugins/setmeta";
-import axios from "./plugins/axios";
+import setmeta from "@/plugins/setmeta";
+import axios from "@/plugins/axios";
 
 // 全局引入 element-plus
 import ElementPlus from "element-plus";
