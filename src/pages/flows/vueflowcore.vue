@@ -20,6 +20,14 @@ const edges = ref([
     { id: "e1-2", source: "1", target: "2", animated: true },
     { id: "e1-3", source: "1", target: "3" },
 ]);
+
+function getData() {
+    return Promise.resolve(5);
+}
+
+onMounted(async () => {
+    console.log("getData:", getData());
+});
 </script>
 <style lang="less" scoped>
 .flow-page {

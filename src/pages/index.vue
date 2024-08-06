@@ -6,7 +6,6 @@
     </div>
 </template>
 <script setup>
-import { ref, reactive, onMounted } from "vue";
 const pageTitle = ref("hello word");
 
 const count = ref(0);
