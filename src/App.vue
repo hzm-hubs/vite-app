@@ -1,24 +1,13 @@
 <template>
-    <!-- 外层页面入口 -->
     <div class="viteapp">
-        <!-- <router-view></router-view> -->
-
-        <!-- 可以通过插槽开启扩展性，如keep-alive/transition -->
-        <router-view v-slot="{ Component }">
-            <!-- <component :is="Component" /> -->
-
-            <keep-alive>
-                <component :is="Component" />
-            </keep-alive>
-
-            <!-- <transition>
-                <keep-alive>
-                    <component :is="Component" />
-                </keep-alive>
-            </transition> -->
-        </router-view>
+        <router-view></router-view>
     </div>
 </template>
+<script setup>
+if (import.meta.env.SSR) {
+    console.log("已启用ssr渲染");
+}
+</script>
 <style>
 .viteapp {
     padding: 10px;

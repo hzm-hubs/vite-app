@@ -6,10 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title><%= VITE_APP_NAME %></title>
         <!-- <title><%- title %></title> -->
+        <!--app-head-->
     </head>
     <body>
-        <div id="app"></div>
-        <!-- 引入入口 -->
-        <script type="module" src="/src/main.ts"></script>
+        <!-- 占位符 可自定义  -->
+        <div id="app"><!--app-html--></div>
+        <!-- 引入客户端入口文件 -->
+        <script type="module" src="/src/entry-client.js"></script>
     </body>
 </html>

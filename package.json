@@ -4,16 +4,19 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "dev: prod": "vite --mode prodiction",
-        "build": "vite build",
-        "preview": "vite preview"
+        "dev": "node server.js",
+        "dev:test": "cross-env NODE_ENV=test node server.js",
+        "build": "npm run build:client && npm run build:server",
+        "build:client": "vite build --ssrManifest --outDir dist/client",
+        "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
+        "preview": "cross-env NODE_ENV=production node server"
     },
     "dependencies": {
         "@vue-flow/core": "^1.39.1",
         "axios": "^0.27.2",
         "dayjs": "^1.11.5",
         "element-plus": "^2.3.12",
+        "express": "^4.19.2",
         "less": "^4.2.0",
         "qs": "^6.11.0",
         "vue": "^3.2.37",
@@ -23,6 +26,7 @@
     "devDependencies": {
         "@types/node": "^22.0.2",
         "@vitejs/plugin-vue": "^3.0.3",
+        "cross-env": "^7.0.3",
         "eslint": "^8.22.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-import": "^2.28.1",
