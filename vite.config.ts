@@ -89,6 +89,11 @@ export default ({ mode, command }) =>
         // 	jsxFactory: "h",
         // 	jsxFragment: "Fragment",
         // },
+        ssr: {
+            target: "node",
+            // 对一些依赖启用外部化，以供服务端渲染（SSR）使用
+            external: [],
+        },
     });
 
 // export default defineConfig({
