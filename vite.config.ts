@@ -49,10 +49,23 @@ export default ({ mode, command }) =>
         plugins: [
             vue(),
             createHtmlPlugin({
+                minify: true,
+                // entry: 'src/main.ts',
+                // template: 'public/index.html',
                 inject: {
                     data: {
                         title: getViteEnv(mode, "VITE_APP_TITLE"),
                     },
+                    // 需要注入的标签列表
+                    tags: [
+                        {
+                            injectTo: "head",
+                            tag: "meta",
+                            attrs: {
+                                id: "tag",
+                            },
+                        },
+                    ],
                 },
             }),
             AutoImport({
