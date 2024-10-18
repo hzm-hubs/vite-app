@@ -7,52 +7,37 @@ interface serverResponse {
 
 interface serverData {}
 
-axios.interceptors.request.use(
-    (reqData: any, addCommonParams: boolean = true) => {
-        // console.log("请求数据", reqData);
-        // adapter: ƒ xhrAdapter(config)
-        // data: ""
-        // env: {FormData: null}
-        // headers: {Accept: 'application/json, text/plain, */*'}
-        // maxBodyLength: -1
-        // maxContentLength: -1
-        // method: "get"
-        // params: {version: '1.0.1'}
-        // timeout: 0
-        // transformRequest: ƒ (data)
-        // transformResponse: [ƒ]
-        // transitional: {silentJSONParsing: true, forcedJSONParsing: true, clarifyTimeoutError: false}
-        // url: "https://micro.qknode.com/qkbloc-novel/novels/novel/getConfigNovel"
-        // validateStatus: ƒ validateStatus(status)
-        // xsrfCookieName: "XSRF-TOKEN"
-        // xsrfHeaderName: "X-XSRF-TOKEN"
+const instance = axios.create({
+    baseURL: config.apiBaseUrl,
+    timeout: 5000,
+});
 
-        // 设置post时的请求格式 "application/x-www-form-urlencoded";
-        reqData.headers.post["Content-Type"] = "application/json";
+instance.interceptors.request.use((reqData: any) => {
+    console.log("请求数据", reqData);
 
-        // 使用qs统一处理请求数据格式
-        reqData.transformRequest = function (data) {
-            return qs.stringify(data);
-        };
+    if (!reqData?.headers["Content-Type"]) {
+        reqData.headers["Content-Type"] = "application/json";
+    }
 
-        // 添加公参数
-        if (addCommonParams) {
-            if (!reqData.params) {
-                reqData.params = {};
-            }
+    // 使用qs统一处理请求数据格式
+    // reqData.transformRequest = function (data) {
+    //     return qs.stringify(data);
+    // };
 
-            reqData.params.version = config.version;
-        }
+    // 添加公参数
+    if (!reqData.params) {
+        reqData.params = {};
+    }
+    reqData.params.version = config.version;
 
-        // 返回
-        return reqData;
-    },
-);
+    // 返回
+    return reqData;
+});
 
 // 响应拦截
-axios.interceptors.response.use((respData: any) => {
+instance.interceptors.response.use((respData: any) => {
     // console.log("返回数据", respData);
     return respData.data;
 });
 
-export default axios;
+export default instance;

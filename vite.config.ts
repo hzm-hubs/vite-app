@@ -141,6 +141,3 @@ export default ({ mode, command }) =>
             entries: ["index.html"],
         },
     });
-
-// export default defineConfig({
-// })

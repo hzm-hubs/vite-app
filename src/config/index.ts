@@ -1,4 +1,4 @@
-let apiBaseUrl = "http://test/adm";
+let apiBaseUrl = "http://47.97.85.152";
 
 let version = "1.0.4";
 

@@ -1,24 +1,25 @@
 <template>
     <div>
-        <h2>{{ pageTitle }}</h2>
-
+        <div>植物识别系统</div>
         <van-button type="primary" @click="count++"
             >count is {{ count }}</van-button
         >
-        <van-button type="primary" @click="goRouter">跳转</van-button>
+        <van-uploader :after-read="handleRead">上传并识别</van-uploader>
     </div>
 </template>
 <script setup>
-import { useRouter, useRoute } from "vue-router";
+import { uploadUrl } from "@/apis";
+import { showToast } from "vant";
 
-const pageTitle = ref("hello word");
+function handleRead({ file, objectUrl, content }) {
+    console.log("file", file);
 
-const router = useRouter();
-
-const count = ref(0);
-
-function goRouter() {
-    router.push("/flows");
+    if (!file?.size) {
+        return showToast("文件大小不存在");
+    }
+    const formData = new FormData();
+    formData.append("image", file);
+    uploadUrl(formData);
 }
 
 onMounted(() => {
