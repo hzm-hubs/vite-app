@@ -245,12 +245,16 @@ onMounted(() => {
 }
 </style>
 <style>
-.van-toast__text {
+.plant__toast {
     background: #f5f5f5;
     padding: 0.12rem;
-    color: #000;
+    border-radius: 0.16rem;
+    top: 90%;
+}
+.van-toast__text {
+    color: #292828;
     text-align: center;
     font-size: 0.28rem;
-    line-height: 0.4rem;
+    line-height: 0.3rem;
 }
 </style>
