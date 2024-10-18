@@ -9,7 +9,7 @@ interface serverData {}
 
 const instance = axios.create({
     baseURL: "/",
-    timeout: 5000,
+    timeout: 120000,
 });
 
 instance.interceptors.request.use(

@@ -1,6 +1,6 @@
 let apiBaseUrl = "http://47.97.85.152";
 
-let version = "1.0.8";
+let version = "1.0.9";
 
 let port = 6001;
 
