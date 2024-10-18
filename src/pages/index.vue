@@ -7,21 +7,21 @@
         <div class="plant__title">植物识别系统</div>
 
         <div class="plant__image">
-            <van-uploader :max-count="1" :after-read="handleRead">
+            <van-uploader
+                capture="camera"
+                :max-count="1"
+                :after-read="handleRead"
+            >
                 <img :src="logoUrl" />
             </van-uploader>
         </div>
 
-        <van-uploader :max-count="1" :after-read="handleRead">
+        <van-uploader capture="camera" :max-count="1" :after-read="handleRead">
             <van-button class="plant__btn">拍照上传</van-button>
         </van-uploader>
 
         <div>
-            <van-uploader
-                :max-count="1"
-                capture="camera"
-                :after-read="handleRead"
-            >
+            <van-uploader :max-count="1" :after-read="handleRead">
                 <div>从照片中选择</div>
             </van-uploader>
         </div>
