@@ -10,5 +10,6 @@ declare module 'vue' {
     Loading: typeof import('./src/components/Common/loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VanButton: typeof import('vant/es')['Button']
   }
 }

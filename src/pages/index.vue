@@ -2,10 +2,10 @@
     <div>
         <h2>{{ pageTitle }}</h2>
 
-        <el-button type="button" @click="count++"
-            >count is {{ count }}</el-button
+        <van-button type="primary" @click="count++"
+            >count is {{ count }}</van-button
         >
-        <el-button type="button" @click="goRouter">跳转</el-button>
+        <van-button type="primary" @click="goRouter">跳转</van-button>
     </div>
 </template>
 <script setup>

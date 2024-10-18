@@ -8,7 +8,7 @@ import { createHtmlPlugin } from "vite-plugin-html";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-
+import { VantResolver } from "@vant/auto-import-resolver";
 // 生成绝对路径
 function pathResolve(dir: string) {
     return resolve(__dirname, "./", dir);
@@ -93,7 +93,7 @@ export default ({ mode, command }) =>
                 // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
                 imports: ["vue", "vue-router"],
                 // 自动导入element相关函数，如：ElMessage, ElMessageBox..
-                resolvers: [ElementPlusResolver()],
+                resolvers: [ElementPlusResolver(), VantResolver()],
                 // dts: "./auto-imports.d.ts", // 默认文件生成位置, 也可以自定义
             }),
 
@@ -101,6 +101,7 @@ export default ({ mode, command }) =>
                 // 指定自动导入的组件位置，
                 dirs: ["src/components/Common"],
                 // dts: './components.d.ts', // 默认文件生成位置
+                resolvers: [VantResolver()],
             }),
         ],
         css: {

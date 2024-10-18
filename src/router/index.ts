@@ -22,61 +22,9 @@ const routes = [
                 path: "",
                 name: "Home",
                 meta: {
-                    keepAlive: true,
                     title: "首页",
                 },
                 component: () => import("@/pages/index.vue"),
-            },
-            {
-                path: "origin",
-                name: "origin",
-                meta: {
-                    title: "旧首页",
-                },
-                component: () => import("@/pages/origin.vue"),
-            },
-            {
-                path: "books",
-                name: "books",
-                // redirect: "/",
-                children: [
-                    {
-                        path: "", // path: "" 写法等同于为父级设置别名 alias 属性
-                        name: "BooksIndex",
-                        component: () => import("@/pages/books/index.vue"),
-                    },
-                    {
-                        path: "tengwangge",
-                        name: "Tengwangge",
-                        meta: {
-                            title: "tengwangge",
-                        },
-                        component: () => import("@/pages/books/tengwangge.vue"),
-                    },
-                ],
-            },
-            {
-                path: "flows",
-                name: "Flows",
-                children: [
-                    {
-                        path: "",
-                        name: "VueFlowCore",
-                        meta: {
-                            title: "vue-flow-core",
-                        },
-                        component: () =>
-                            import("@/pages/flows/vueflowcore.vue"),
-                    },
-                ],
-            },
-            {
-                path: "bfc",
-                name: "bfc",
-                meta: {
-                    title: "旧首页",
-                },
-                component: () => import("@/pages/bfc.vue"),
             },
         ],
     },

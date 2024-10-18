@@ -10,18 +10,19 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@vue-flow/core": "^1.39.1",
         "axios": "^0.27.2",
         "dayjs": "^1.11.5",
         "element-plus": "^2.3.12",
         "less": "^4.2.0",
         "qs": "^6.11.0",
+        "vant": "^4.9.8",
         "vue": "^3.2.37",
         "vue-router": "^4.0.13",
         "vuex": "^4.0.2"
     },
     "devDependencies": {
         "@types/node": "^22.0.2",
+        "@vant/auto-import-resolver": "^1.2.1",
         "@vitejs/plugin-vue": "^3.0.3",
         "eslint": "^8.22.0",
         "eslint-config-prettier": "^9.0.0",
