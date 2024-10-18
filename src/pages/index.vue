@@ -141,7 +141,7 @@ onMounted(() => {
         &_back {
             position: absolute;
             top: 0.21rem;
-            left: 0.14rem;
+            left: -0.14rem;
             width: 0.56rem;
             height: 0.56rem;
         }
@@ -181,9 +181,11 @@ onMounted(() => {
             object-fit: contain;
             border-radius: 0.16rem;
             border: 2px solid #79a1cf;
+            .flex(center,center);
             img {
-                height: 100%;
-                width: 100%;
+                max-width: 100%;
+                max-height: 3.16rem;
+                object-fit: contain;
             }
         }
 
