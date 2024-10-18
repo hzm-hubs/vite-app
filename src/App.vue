@@ -5,17 +5,19 @@
 
         <!-- 可以通过插槽开启扩展性，如keep-alive/transition -->
         <router-view v-slot="{ Component }">
+            <!-- 一 -->
             <!-- <component :is="Component" /> -->
 
-            <keep-alive>
-                <component :is="Component" />
-            </keep-alive>
-
+            <!-- 二 -->
             <!-- <transition>
-                <keep-alive>
                     <component :is="Component" />
-                </keep-alive>
             </transition> -->
+
+            <!-- 三 -->
+            <keep-alive>
+                <component v-if="$route.meta.keepAlive" :is="Component" />
+            </keep-alive>
+            <component v-if="!$route.meta.keepAlive" :is="Component" />
         </router-view>
     </div>
 </template>
