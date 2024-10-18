@@ -19,6 +19,7 @@ const routes = [
                 path: "",
                 name: "Home",
                 meta: {
+                    keepAlive: true,
                     title: "首页",
                 },
                 component: () => import("@/pages/index.vue"),
@@ -65,6 +66,14 @@ const routes = [
                             import("@/pages/flows/vueflowcore.vue"),
                     },
                 ],
+            },
+            {
+                path: "bfc",
+                name: "bfc",
+                meta: {
+                    title: "旧首页",
+                },
+                component: () => import("@/pages/bfc.vue"),
             },
         ],
     },
