@@ -44,7 +44,12 @@ export default ({ mode, command }) =>
             port: config.port,
 
             // 代理
-            proxy: {},
+            proxy: {
+                "/api": {
+                    target: `${config.apiBaseUrl}`,
+                    changeOrigin: true,
+                },
+            },
 
             // 默认不限制
             // cors:

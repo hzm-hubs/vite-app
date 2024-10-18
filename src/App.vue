@@ -10,9 +10,9 @@
 </template>
 <style>
 .viteapp {
-    padding: 10px;
-    width: calc(100vw - 20px);
-    height: calc(100vh - 20px);
-    overflow: auto;
+    /* padding: 10px; */
+    width: 100vw;
+    height: 100vh;
+    /* overflow: auto; */
 }
 </style>
