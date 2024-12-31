@@ -80,8 +80,8 @@ export default {
 
     mounted() {
         // console.log("peopleA", this.peopleA);
-        console.log("peopleB", this.peopleB);
-        console.log("pageInfo", this.pageInfo);
+        // console.log("peopleB", this.peopleB);
+        // console.log("pageInfo", this.pageInfo);
         this.getBannerData();
     },
 

@@ -18,11 +18,18 @@ const router = useRouter();
 const count = ref(0);
 
 function goRouter() {
-    router.push("/flows");
+    router.push("/books");
 }
 
 onMounted(() => {
     console.log("page --init");
 });
+</script>
+<script>
+import { defineComponent } from "vue";
+export default defineComponent({
+    name: "Home", // 在 defineComponent 中设置 name
+});
+
 </script>
 <style lang=""></style>

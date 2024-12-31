@@ -1,7 +1,7 @@
 // 创建store
 
 import { createStore } from "vuex";
-
+import tagviews from "./modules/tagviews";
 export default createStore({
     // state中来定义数据
     state() {
@@ -31,5 +31,7 @@ export default createStore({
         },
     },
 
-    modules: {},
+    modules: {
+        tagviews,
+    },
 });

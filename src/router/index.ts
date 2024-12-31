@@ -1,7 +1,6 @@
 // @ts-nocheck
 
 // 路由
-import store from "@/store/index";
 import middleware from "@/middleware/auth";
 import defaultLayout from "@/layouts/defaultLayout.vue";
 import {
@@ -10,7 +9,6 @@ import {
     useRoute,
     useRouter,
 } from "vue-router";
-import component from "element-plus/es/components/tree-select/src/tree-select-option.mjs";
 
 const routes = [
     // todo name 不能重复
@@ -20,16 +18,17 @@ const routes = [
         children: [
             {
                 path: "",
-                name: "Home",
+                name: "Home", // 这里的name必须与component组件中显示声明的name一致才可以keepAlive缓存成功
+                // 或者其name已在route声明注册过
                 meta: {
-                    keepAlive: true,
+                    // keepAlive: true,
                     title: "首页",
                 },
                 component: () => import("@/pages/index.vue"),
             },
             {
                 path: "origin",
-                name: "origin",
+                name: "Origin",
                 meta: {
                     title: "旧首页",
                 },
@@ -37,7 +36,7 @@ const routes = [
             },
             {
                 path: "books",
-                name: "books",
+                name: "Books",
                 // redirect: "/",
                 children: [
                     {
@@ -49,6 +48,7 @@ const routes = [
                         path: "tengwangge",
                         name: "Tengwangge",
                         meta: {
+                            // keepAlive: true,
                             title: "tengwangge",
                         },
                         component: () => import("@/pages/books/tengwangge.vue"),
@@ -72,7 +72,7 @@ const routes = [
             },
             {
                 path: "bfc",
-                name: "bfc",
+                name: "Bfc",
                 meta: {
                     title: "旧首页",
                 },
