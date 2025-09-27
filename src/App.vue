@@ -10,8 +10,8 @@
 
 			<!-- 二 -->
 			<!-- <transition>
-                    <component :is="Component" />
-            </transition> -->
+					<component :is="Component" />
+			</transition> -->
 
 			<!-- 三 -->
 			<keep-alive>

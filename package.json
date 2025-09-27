@@ -1,39 +1,41 @@
 {
-    "name": "viteapp",
-    "private": true,
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "dev: prod": "vite --mode prodiction",
-        "build": "vite build",
-        "preview": "vite preview"
-    },
-    "dependencies": {
-        "@vue-flow/core": "^1.39.1",
-        "axios": "^0.27.2",
-        "dayjs": "^1.11.5",
-        "element-plus": "^2.3.12",
-        "less": "^4.2.0",
-        "qs": "^6.11.0",
-        "vue": "^3.2.37",
-        "vue-router": "^4.0.13",
-        "vuex": "^4.0.2"
-    },
-    "devDependencies": {
-        "@types/node": "^22.0.2",
-        "@vitejs/plugin-vue": "^3.0.3",
-        "eslint": "^8.22.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-import": "^2.28.1",
-        "eslint-plugin-prettier": "^5.0.0",
-        "eslint-plugin-vue": "^9.4.0",
-        "prettier": "^3.0.3",
-        "typescript": "^4.7.4",
-        "unplugin-auto-import": "^0.18.2",
-        "unplugin-vue-components": "^0.27.3",
-        "vite": "^3.0.7",
-        "vite-plugin-html": "^3.2.2",
-        "vite-plugin-style-import": "^2.0.0"
-    }
+	"name": "viteapp",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"dev: prod": "vite --mode prodiction",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "eslint . --ext .js,.ts,.vue",
+		"lint:fix": "eslint . --ext .js,.ts,.vue --fix"
+	},
+	"dependencies": {
+		"@vue-flow/core": "^1.39.1",
+		"axios": "^0.27.2",
+		"dayjs": "^1.11.5",
+		"element-plus": "^2.3.12",
+		"less": "^4.2.0",
+		"qs": "^6.11.0",
+		"vue": "^3.2.37",
+		"vue-router": "^4.0.13",
+		"vuex": "^4.0.2"
+	},
+	"devDependencies": {
+		"@types/node": "^22.0.2",
+		"@vitejs/plugin-vue": "^3.0.3",
+		"eslint": "^8.22.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-import": "^2.28.1",
+		"eslint-plugin-prettier": "^5.0.0",
+		"eslint-plugin-vue": "^9.4.0",
+		"prettier": "^3.0.3",
+		"typescript": "^4.7.4",
+		"unplugin-auto-import": "^0.18.2",
+		"unplugin-vue-components": "^0.27.3",
+		"vite": "^3.0.7",
+		"vite-plugin-html": "^3.2.2",
+		"vite-plugin-style-import": "^2.0.0"
+	}
 }
