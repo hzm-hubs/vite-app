@@ -24,6 +24,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^22.0.2",
+		"@typescript-eslint/parser": "^8.44.1",
 		"@vitejs/plugin-vue": "^3.0.3",
 		"eslint": "^8.22.0",
 		"eslint-config-prettier": "^9.0.0",
@@ -36,6 +37,7 @@
 		"unplugin-vue-components": "^0.27.3",
 		"vite": "^3.0.7",
 		"vite-plugin-html": "^3.2.2",
-		"vite-plugin-style-import": "^2.0.0"
+		"vite-plugin-style-import": "^2.0.0",
+		"vue-eslint-parser": "^10.2.0"
 	}
 }

@@ -4,8 +4,8 @@
         <div class="book__banner">
             <div
                 v-for="(banner, index) in booksList"
-                class="book__banner_item"
                 :key="index"
+                class="book__banner_item"
                 @click="clickItem(banner)"
             >
                 <div class="book__banner_name">{{ banner.bookName }}</div>
@@ -16,7 +16,7 @@
 
 <script>
 import { computed, reactive, ref } from "vue";
-import { mapState, useStore } from "vuex";
+import { useStore } from "vuex";
 import { useMapState } from "@/plugins/useMapState";
 import { useRouter, useRoute } from "vue-router";
 

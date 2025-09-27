@@ -1,11 +1,6 @@
 import axios from "axios";
 import qs from "qs";
 import config from "../config";
-interface serverResponse {
-    data: serverData;
-}
-
-interface serverData {}
 
 axios.interceptors.request.use(
     (reqData: any, addCommonParams: boolean = true) => {
@@ -31,7 +26,7 @@ axios.interceptors.request.use(
         reqData.headers.post["Content-Type"] = "application/json";
 
         // 使用qs统一处理请求数据格式
-        reqData.transformRequest = function (data) {
+        reqData.transformRequest = function (data: any) {
             return qs.stringify(data);
         };
 

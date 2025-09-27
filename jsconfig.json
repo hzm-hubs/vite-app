@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        // 编译目标
+        "target": "es2020",
+        "lib": ["es2020", "dom", "dom.iterable"],
+        // 模块系统
+        "module": "esnext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        // 路径映射
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        // 类型检查
+        "allowJs": true,
+        "checkJs": false,
+        "strict": false,
+        "skipLibCheck": true,
+        "jsx": "preserve"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist", "**/*.test.js"]
+}

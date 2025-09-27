@@ -22,7 +22,7 @@ export default async function (d: any, c: any, r: any) {
 
     // router.currentRoute获取需要延时 ，换到下面的方法
     let findRoute: any = Array.from(r.options.routes).find(
-        (item: any) => item.path == r.options.history.location
+        (item: any) => item.path == r.options.history.location,
     );
     // console.log("findRoute", findRoute);
     // 判断 r 中是否有标题设置 有就更新

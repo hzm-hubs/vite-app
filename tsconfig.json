@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "lib": ["esnext", "dom", "dom.iterable"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "types": ["node"],
+        "noEmit": true,
+        "strict": true,
+        "jsx": "preserve",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致性
+        "allowSyntheticDefaultImports": true, // 允许合成默认导入
+        "declaration": true,
+        "sourceMap": true
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "vite.config.ts"
+    ],
+    // "extends":
+    "exclude": ["node_modules", "dist", "**/*.js"]
+}

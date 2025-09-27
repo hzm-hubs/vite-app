@@ -94,6 +94,10 @@ export default ({ mode, command }) =>
                 imports: ["vue", "vue-router"],
                 // 自动导入element相关函数，如：ElMessage, ElMessageBox..
                 resolvers: [ElementPlusResolver()],
+                eslintrc: {
+                    enabled: true, //自动根据 unplugin-auto-import 生成eslint得全局合法变量，生成一次后可以设为 false
+                    // filepath: './.eslintrc-auto-import.json' // 生成的配置文件路径
+                },
                 // dts: "./auto-imports.d.ts", // 默认文件生成位置, 也可以自定义
             }),
 

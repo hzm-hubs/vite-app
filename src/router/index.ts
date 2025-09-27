@@ -1,16 +1,9 @@
 // @ts-nocheck
 
 // 路由
-import store from "@/store/index";
 import middleware from "@/middleware/auth";
 import defaultLayout from "@/layouts/defaultLayout.vue";
-import {
-    createRouter,
-    createWebHistory,
-    useRoute,
-    useRouter,
-} from "vue-router";
-import component from "element-plus/es/components/tree-select/src/tree-select-option.mjs";
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
     // todo name 不能重复

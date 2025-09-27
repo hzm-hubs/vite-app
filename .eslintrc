@@ -1,0 +1,26 @@
+{
+    // eslint8以上需要使用json格式
+    // 'prettier','plugin:prettier/recommended' 二选一即可，都可以启用 prettier/prettier
+    "root": true,
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser", // 处理 <script lang="ts">
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "extraFileExtensions": [".vue"],
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/vue3-recommended",
+        "plugin:prettier/recommended",
+        "./.eslintrc-auto-import.json",
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "vue/no-multiple-template-root": "off",
+        "vue/multi-word-component-names": "off",
+        "vue/no-v-html": "off",
+        "no-invalid-this": "off", // 考虑关闭此规则
+        "@typescript-eslint/no-this-alias": "off",
+    },
+}

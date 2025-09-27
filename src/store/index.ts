@@ -19,8 +19,8 @@ export default createStore({
 
     // mutations通常为修改state数据而使用，这用就可以避免直接修改state的数据
     mutations: {
-        userLogin(data: any) {
-            this.state.userInfo = data;
+        userLogin(state, data: any) {
+            state.userInfo = data;
         },
     },
 
@@ -28,6 +28,10 @@ export default createStore({
     actions: {
         login({ commit }, context) {
             commit("userLogin", context);
+        },
+
+        changeUser(data: any) {
+            this.state.userInfo = data;
         },
     },
 
