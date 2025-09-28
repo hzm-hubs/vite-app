@@ -141,7 +141,8 @@ export default ({ mode, command }: any) =>
             // 支持 CSS 嵌套语法
             postcss: {
                 plugins: [
-                    // 如果需要支持 CSS 嵌套，可以添加 postcss-nesting 插件
+                    // 支持 CSS 嵌套语法，解决构建警告
+                    // require('postcss-nesting')(),
                 ]
             }
         },
@@ -159,6 +160,15 @@ export default ({ mode, command }: any) =>
             assetsDir: "assets",
             // 小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求
             assetsInlineLimit: 4096,
+            // minify: "terser",
+            // terserOptions: {
+            //     compress: {
+            //         // 移除 console
+            //         drop_console: true,
+            //         // 移除 debugger
+            //         drop_debugger: true,
+            //     },
+            // },
             // 代码分割配置
             rollupOptions: {
                 output: {
@@ -173,7 +183,9 @@ export default ({ mode, command }: any) =>
                 }
             },
             // 调整 chunk 大小警告限制
-            chunkSizeWarningLimit: 1000
+            chunkSizeWarningLimit: 1000,
+            // CSS 代码分割
+            cssCodeSplit: true
         },
         optimizeDeps: {
             entries: ["index.html"],

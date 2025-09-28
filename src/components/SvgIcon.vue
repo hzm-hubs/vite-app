@@ -18,7 +18,7 @@ defineProps({
 });
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .icon {
     width: 24px;
     height: 24px;
