@@ -38,9 +38,6 @@ app.use(router);
 // 将 store 挂载到全局的 app.config.globalProperties.$store = store 步骤也就省略了
 app.use(store);
 
-// 静态文件
-app.use("static", "./static");
-
 // 应用
 app.use(ElementPlus, {
     locale: zhCn,
@@ -81,7 +78,8 @@ app.config.globalProperties.$axios = axios;
 setmeta(document, config, router);
 
 // 将应用实例挂载在一个容器元素中。返回根组件的实例, 可以理解为this或者上下文context。
-const context = app.mount("#app");
+// const context = app.mount("#app");
+app.mount("#app");
 
 /**
  *  app 中的一些挂载属性可以在 $.appContext.app 找到

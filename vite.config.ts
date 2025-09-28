@@ -1,9 +1,9 @@
 // vite 配置
 import { defineConfig, loadEnv } from "vite";
-import { resolve, join, dirname } from "path";
+import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
 import config from "./src/config";
-import styleImport from "vite-plugin-style-import";
+// import styleImport from "vite-plugin-style-import";
 import { createHtmlPlugin } from "vite-plugin-html";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
@@ -11,10 +11,11 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // 生成绝对路径
 function pathResolve(dir: string) {
+    /* eslint-disable */
     return resolve(__dirname, "./", dir);
 }
 
-function getViteEnv(mode, target) {
+function getViteEnv(mode: any, target: string) {
     return loadEnv(mode, process.cwd())[target];
 }
 
@@ -22,7 +23,7 @@ function getViteEnv(mode, target) {
 const htmlPlugin = () => {
     return {
         name: "html-transform",
-        transformIndexHtml(html) {
+        transformIndexHtml(html: string) {
             return html.replace(
                 /<title>(.*?)<\/title>/,
                 `<title>Title replaced!</title>`,
@@ -31,7 +32,7 @@ const htmlPlugin = () => {
     };
 };
 
-export default ({ mode, command }) =>
+export default ({ mode, command }: any) =>
     defineConfig({
         //项目根目录
         //  root: process.cwd(),

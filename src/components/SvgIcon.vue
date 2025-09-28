@@ -5,9 +5,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-const props = defineProps({
+defineProps({
     src: {
         type: String,
         default: "", // 展示的svg文件地址，如 `@/assets/icons.svg#icon-arrow`

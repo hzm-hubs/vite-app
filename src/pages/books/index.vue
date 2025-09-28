@@ -101,6 +101,7 @@ export default {
         },
 
         clickItem(item) {
+            console.log("点击项目", item);
             this.router.push("/books/tengwangge");
         },
     },

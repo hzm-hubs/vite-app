@@ -17,22 +17,11 @@
 </template>
 <script setup>
 import { reactive } from "vue";
-import { useRouter, useRoute } from "vue-router";
-
-const pageTitle = ref("hello word");
-
-const router = useRouter();
 
 const reactiveStyle = reactive({
     overflow: "",
     display: "",
 });
-
-const count = ref(0);
-
-function goRouter() {
-    router.push("/flows");
-}
 
 function onClick(type, value) {
     if (reactiveStyle[type]) {
