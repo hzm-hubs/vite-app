@@ -3,7 +3,10 @@ import { defineConfig, loadEnv } from "vite";
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
 import config from "./src/config";
-// import styleImport from "vite-plugin-style-import";
+import {
+    createStyleImportPlugin,
+    ElementPlusResolve,
+} from "vite-plugin-style-import";
 import { createHtmlPlugin } from "vite-plugin-html";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
@@ -68,6 +71,10 @@ export default ({ mode, command }: any) =>
         publicDir: "public",
         plugins: [
             vue(),
+            // 按需导入样式 - 使用 vite-plugin-style-import
+            createStyleImportPlugin({
+                resolves: [ElementPlusResolve()],
+            }),
             createHtmlPlugin({
                 minify: true,
                 // entry: 'src/main.ts',
@@ -105,6 +112,12 @@ export default ({ mode, command }: any) =>
             Components({
                 // 指定自动导入的组件位置，
                 dirs: ["src/components/Common"],
+                // 自动导入 Element Plus 组件
+                resolvers: [
+                    ElementPlusResolver({
+                        importStyle: false // 禁用自动导入样式，使用 styleImport 插件
+                    })
+                ],
                 // dts: './components.d.ts', // 默认文件生成位置
             }),
         ],
@@ -125,6 +138,12 @@ export default ({ mode, command }: any) =>
                     // )}";`,
                 },
             },
+            // 支持 CSS 嵌套语法
+            postcss: {
+                plugins: [
+                    // 如果需要支持 CSS 嵌套，可以添加 postcss-nesting 插件
+                ]
+            }
         },
         // .jsx 和 .tsx 文件同样开箱即用。JSX 的转译同样是通过 esbuild。
         esbuild: {
@@ -140,9 +159,34 @@ export default ({ mode, command }: any) =>
             assetsDir: "assets",
             // 小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求
             assetsInlineLimit: 4096,
+            // 代码分割配置
+            rollupOptions: {
+                output: {
+                    manualChunks: {
+                        // 将 Vue 相关库分离到单独的 chunk
+                        vue: ['vue', 'vue-router', 'vuex'],
+                        // 将 Element Plus 分离到单独的 chunk
+                        'element-plus': ['element-plus'],
+                        // 将工具库分离到单独的 chunk
+                        utils: ['axios', 'dayjs', 'qs']
+                    }
+                }
+            },
+            // 调整 chunk 大小警告限制
+            chunkSizeWarningLimit: 1000
         },
         optimizeDeps: {
             entries: ["index.html"],
+            // 预构建依赖配置
+            include: [
+                'vue',
+                'vue-router',
+                'vuex',
+                'element-plus',
+                'axios',
+                'dayjs',
+                'qs'
+            ]
         },
     });
 

@@ -15,7 +15,7 @@ import axios from "@/plugins/axios";
 // 全局引入 element-plus
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import zhCn from "element-plus/dist/locale/zh-cn.mjs";
+import zhCn from "element-plus/es/locale/lang/zh-cn";
 
 // 全局的css
 import "@/assets/styles/index.css";
@@ -42,6 +42,9 @@ app.use(store);
 app.use(ElementPlus, {
     locale: zhCn,
 });
+
+// 静态资源服务配置已移至 vite.config.ts
+// app.use('static','./static')
 
 // 应用一个全局 mixin  里面的数据可供所有页面使用
 app.mixin(globalMixin);
