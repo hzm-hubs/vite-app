@@ -2,6 +2,9 @@
     // eslint8以上需要使用json格式
     // 'prettier','plugin:prettier/recommended' 二选一即可，都可以启用 prettier/prettier
     "root": true,
+    "env": {
+        "node": true,
+    },
     "parser": "vue-eslint-parser",
     "parserOptions": {
         "parser": "@typescript-eslint/parser", // 处理 <script lang="ts">

@@ -14,7 +14,6 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // 生成绝对路径
 function pathResolve(dir: string) {
-    /* eslint-disable */
     return resolve(__dirname, "./", dir);
 }
 
@@ -115,8 +114,8 @@ export default ({ mode, command }: any) =>
                 // 自动导入 Element Plus 组件
                 resolvers: [
                     ElementPlusResolver({
-                        importStyle: false // 禁用自动导入样式，使用 styleImport 插件
-                    })
+                        importStyle: false, // 禁用自动导入样式，使用 styleImport 插件
+                    }),
                 ],
                 // dts: './components.d.ts', // 默认文件生成位置
             }),
@@ -143,8 +142,8 @@ export default ({ mode, command }: any) =>
                 plugins: [
                     // 支持 CSS 嵌套语法，解决构建警告
                     // require('postcss-nesting')(),
-                ]
-            }
+                ],
+            },
         },
         // .jsx 和 .tsx 文件同样开箱即用。JSX 的转译同样是通过 esbuild。
         esbuild: {
@@ -174,31 +173,31 @@ export default ({ mode, command }: any) =>
                 output: {
                     manualChunks: {
                         // 将 Vue 相关库分离到单独的 chunk
-                        vue: ['vue', 'vue-router', 'vuex'],
+                        vue: ["vue", "vue-router", "vuex"],
                         // 将 Element Plus 分离到单独的 chunk
-                        'element-plus': ['element-plus'],
+                        "element-plus": ["element-plus"],
                         // 将工具库分离到单独的 chunk
-                        utils: ['axios', 'dayjs', 'qs']
-                    }
-                }
+                        utils: ["axios", "dayjs", "qs"],
+                    },
+                },
             },
             // 调整 chunk 大小警告限制
             chunkSizeWarningLimit: 1000,
             // CSS 代码分割
-            cssCodeSplit: true
+            cssCodeSplit: true,
         },
         optimizeDeps: {
             entries: ["index.html"],
             // 预构建依赖配置
             include: [
-                'vue',
-                'vue-router',
-                'vuex',
-                'element-plus',
-                'axios',
-                'dayjs',
-                'qs'
-            ]
+                "vue",
+                "vue-router",
+                "vuex",
+                "element-plus",
+                "axios",
+                "dayjs",
+                "qs",
+            ],
         },
     });
 
